@@ -1,0 +1,11 @@
+# MySQL aliases
+alias run_sql="sudo systemctl start mysql"
+alias stop_sql="sudo systemctl stop mysql"
+alias restart_sql="sudo systemctl restart mysql"
+alias status_sql="sudo systemctl status mysql"
+
+# Compose aliases
+alias start_compose="docker compose -f bd-compose.yml up --build database --remove-orphans"
+alias down_compose="docker compose -f bd-compose.yml down -v"
+alias mysql_cont="docker exec -it database mysql -u root -p"
+alias nv_down_compose="docker compose -f bd-compose.yml down"

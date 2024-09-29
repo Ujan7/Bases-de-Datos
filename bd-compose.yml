@@ -1,0 +1,14 @@
+services:
+  database:
+    image: mysql:latest
+    container_name: database
+    restart: 'unless-stopped'
+    environment:
+      MYSQL_ROOT_PASSWORD: computadora711
+    ports:
+      - 3306:3306
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
