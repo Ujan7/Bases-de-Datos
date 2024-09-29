@@ -102,6 +102,28 @@ JOIN countrylanguage cl
 ON c.Code = cl.CountryCode
 WHERE cl.Percentage > (SELECT avg FROM avg_speakers) and cl.IsOfficial LIKE "F"
 
+-- 8. Listar la cantidad de habitantes por continente ordenado en forma descendente.
+
+SELECT c.Continent, SUM(c.Population) AS total_population
+FROM country c  
+GROUP BY c.Continent 
+ORDER BY total_population DESC;
+
+-- 9. Listar el promedio de esperanza de vida (LifeExpectancy) por continente con una esperanza de vida entre 40 y 70 años.
+
+SELECT c.Continent, AVG(c.LifeExpectancy) as avg_life_expc
+FROM country c
+WHERE 40 <= c.LifeExpectancy <= 70
+GROUP BY c.Continent;
+
+-- 10. Listar la cantidad máxima, mínima, promedio y suma de habitantes por continente.
+
+SELECT c.Continent, MAX(c.Population) AS max_population, 
+	MIN(c.Population) AS min_population, 
+	SUM(c.Population) as total_population
+FROM country c 
+GROUP BY c.Continent;
+
  
  
  
